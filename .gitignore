@@ -1,0 +1,19 @@
+# Data
+creditcard.csv
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Environment
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+
+# Large model files (uncomment if you don't want to push them to GitHub)
+# models/*.pkl
