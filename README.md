@@ -44,6 +44,8 @@ Given 284,807 anonymized credit card transactions made by European cardholders i
 
 At the default 0.5 threshold, the model correctly identifies **76 of 95** fraud cases in the test set, with 48 false alarms. Threshold analysis showed that lowering the threshold below 0.5 yields negligible recall gains at a severe precision cost, confirming 0.5 as a strong operating point for this use case.
 
+> **Why not pick the threshold with the highest F1-score?** The threshold sweep shows F1 peaking at 0.826 (threshold = 0.90), higher than the 0.694 achieved at threshold = 0.5. However, that higher F1 comes from trading recall (0.800 → 0.747) for precision — meaning more fraud cases go undetected. In fraud detection, a missed fraud case (false negative) typically carries a far higher real-world cost than a false alarm (false positive), which only costs a manual review. F1 treats precision and recall as equally important, but this problem doesn't. The threshold (0.5) was therefore chosen to prioritize recall, not to maximize the F1 metric in isolation — a deliberate trade-off, not an oversight.
+
 ### Class Distribution
 ![Class Distribution](images/eda_plots.png)
 
